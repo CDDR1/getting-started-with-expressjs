@@ -43,3 +43,15 @@ export const updateUser = (req, res) => {
 
     res.send('User has been updated');
 }
+
+export const updateUserCompletely = (req, res) => {
+    const { id } = req.params;
+
+    const userToUpdate = users.find(user => user.id === id);
+
+    userToUpdate.firstName = req.body.firstName;
+    userToUpdate.lastName = req.body.lastName;
+    userToUpdate.age = req.body.age;
+
+    res.send(`User with id: ${id} completely updated`);
+}
